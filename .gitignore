@@ -29,3 +29,12 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+###### ===========================================================
+###### npm run build, test, deploy, start 실행 시 발생 되는 폴더들
+contract/neardev
+contract/target
+frontend/.parcel-cache
+frontend/dist
+integration-tests/target
+###### ===========================================================
