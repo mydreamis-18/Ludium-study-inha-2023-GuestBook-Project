@@ -35,14 +35,20 @@ window.onload = async () => {
   // ##### 로그인이 되어 있을 경우 accountId랑 wallet() 객체를 담음 
   const isSignedIn = await wallet.startUp()
 
+  // ===================================================================================================
   // ##### 로그인 여부, 컨트랙트 주소, 로그인된 지갑 정보를 App 컴포넌트에 props 값으로 전달하면서 렌더링 진행
   ReactDOM.render(
-    <>
-      <BrowserRouter>
-        <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} />
-        <Router />
-      </BrowserRouter>
-    </>,
+    <BrowserRouter>
+      <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} />
+      <Router />
+    </BrowserRouter>,
     document.getElementById('root'),
   );
+  // ===================================================================================================
+
+  // // ###### 디폴트 코드
+  // ReactDOM.render(
+  //       <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} />,
+  //   document.getElementById('root'),
+  // );
 }

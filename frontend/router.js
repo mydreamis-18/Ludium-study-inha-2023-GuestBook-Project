@@ -2,21 +2,35 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
 
-import GuestBook_jiwon from './guestBook-components/guestBook_jiwon';
 import GuestBook_list from './guestBook-components/guestBook_list';
+import GuestBook_jiwon from './guestBook-components/guestBook_jiwon';
+
+// ##### 1. 여기에 복사한 컴포넌트 가져오고
+// ##### 2. 아래에 경로 및 렌더링할 컴포넌트로 추가하세요.
 
 const Router = () => {
   return useRoutes([
     {
       path: "/",
       element: <GuestBook_list />,
-      children: [
-        {
-          path: "jiwon",
-          element: <GuestBook_jiwon />
-        }
-      ]
-    }
+      // // ##### 중첩 라우팅, children 속성은 둘 다 표시하고 싶을 때 사용하면 됨
+      // // ##### 다만 부모 컴포넌트 원하는 위치에 <Oultet /> 추가 해야 됨
+      // children: [
+      //   { }
+      // ]
+    },
+    {
+      path: "/jiwon",
+      element: <GuestBook_jiwon />
+    },
+    // {
+    //   path:
+    //   element:
+    // },
+    // {
+    //   path:
+    //   element:
+    // },
   ])
 }
 
