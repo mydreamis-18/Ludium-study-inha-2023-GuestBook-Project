@@ -64,11 +64,11 @@ export default function App({ isSignedIn, contractId, wallet }) {
     return wallet.viewMethod({ method: 'get_greeting', contractId })
   }
 
+  // ===============================================================================
   return (
-    <>
-      <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
-    </>
+    <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
   );
+  // ===============================================================================
 
   // // ##### 디폴트 코드
   // return (
