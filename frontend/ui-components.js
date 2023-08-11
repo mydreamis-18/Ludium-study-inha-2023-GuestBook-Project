@@ -1,5 +1,6 @@
 import React from 'react';
 
+// ##### 니어 지갑에 로그인이 안 되어 있을 때 사용하는 컴포넌트
 export function SignInPrompt({greeting, onClick}) {
   return (
     <main>
@@ -27,6 +28,7 @@ export function SignInPrompt({greeting, onClick}) {
   );
 }
 
+// ##### 로그아웃 버튼 컴포넌트
 export function SignOutButton({accountId, onClick}) {
   return (
     <button style={{ float: 'right' }} onClick={onClick}>
@@ -35,6 +37,7 @@ export function SignOutButton({accountId, onClick}) {
   );
 }
 
+// ##### 니어 지갑에 로그인 되어 있을 때 사용하는 컴포넌트
 export function EducationalText() {
   return (
     <>
