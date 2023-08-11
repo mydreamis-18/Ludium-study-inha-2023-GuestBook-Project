@@ -3,6 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+// ===============================================
+import Router from './router';
+import { BrowserRouter } from 'react-router-dom';
+// ===============================================
+
 // NEAR
 import { Wallet } from './near-wallet';
 
@@ -32,7 +37,10 @@ window.onload = async () => {
 
   // ##### 로그인 여부, 컨트랙트 주소, 로그인된 지갑 정보를 App 컴포넌트에 props 값으로 전달하면서 렌더링 진행
   ReactDOM.render(
-    <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} />,
-    document.getElementById('root')
+    <BrowserRouter>
+      <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} />
+      <Router />
+    </BrowserRouter>,
+    document.getElementById('root'),
   );
 }

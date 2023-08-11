@@ -67,26 +67,33 @@ export default function App({ isSignedIn, contractId, wallet }) {
   return (
     <>
       <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
-      <main className={uiPleaseWait ? 'please-wait' : ''}>
-        <h1>
-          The contract says: <span className="greeting">{valueFromBlockchain}</span>
-        </h1>
-        <form onSubmit={changeGreeting} className="change">
-          <label>Change greeting:</label>
-          <div>
-            <input
-              autoComplete="off"
-              defaultValue={valueFromBlockchain}
-              id="greetingInput"
-            />
-            <button>
-              <span>Save</span>
-              <div className="loader"></div>
-            </button>
-          </div>
-        </form>
-        <EducationalText />
-      </main>
     </>
   );
+
+  // // ##### 디폴트 코드
+  // return (
+  //   <>
+  //     <SignOutButton accountId={wallet.accountId} onClick={() => wallet.signOut()} />
+  //     <main className={uiPleaseWait ? 'please-wait' : ''}>
+  //       <h1>
+  //         The contract says: <span className="greeting">{valueFromBlockchain}</span>
+  //       </h1>
+  //       <form onSubmit={changeGreeting} className="change">
+  //         <label>Change greeting:</label>
+  //         <div>
+  //           <input
+  //             autoComplete="off"
+  //             defaultValue={valueFromBlockchain}
+  //             id="greetingInput"
+  //           />
+  //           <button>
+  //             <span>Save</span>
+  //             <div className="loader"></div>
+  //           </button>
+  //         </div>
+  //       </form>
+  //       <EducationalText />
+  //     </main>
+  //   </>
+  // );
 }
