@@ -9,11 +9,18 @@
 // ##### 5. router.js 파일에서 경로 및 렌더링할 컴포넌트로 지정해주면 됩니다.
 
 import React from 'react'
+import { useNavigate } from 'react-router'
 
-// ##### 컴포넌트명은 대문자로 시작해야 합니다.
 const GuestBook_default = () => {
+  //
+  const nav = useNavigate();
+  //
   return (
-    <div>GuestBook_default</div>
+    <>
+    {/* ##### 해당 엘리먼트를 클릭하면 "/" 경로로 이동하는 기능 */}
+      <button onClick={() => nav("/")}>목록 페이지로 돌아 가기</button>
+      <div>GuestBook_default</div>
+    </>
   )
 }
 
