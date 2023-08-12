@@ -40,7 +40,7 @@ window.onload = async () => {
   ReactDOM.render(
     <BrowserRouter>
       <App isSignedIn={isSignedIn} contractId={CONTRACT_ADDRESS} wallet={wallet} />
-      <Router />
+      <Router isSignedIn={isSignedIn} />
     </BrowserRouter>,
     document.getElementById('root'),
   );
