@@ -7,6 +7,8 @@ import { EducationalText, SignInPrompt, SignOutButton } from './ui-components';
 
 
 export default function App({ isSignedIn, contractId, wallet }) {
+  //
+  // ##### 컨트랙트의 상태 값에 대한 state 값
   const [valueFromBlockchain, setValueFromBlockchain] = React.useState();
 
   const [uiPleaseWait, setUiPleaseWait] = React.useState(true);
@@ -24,20 +26,22 @@ export default function App({ isSignedIn, contractId, wallet }) {
     // });
 
     // ======================================
-    getGreeting()
-      .then((returnData) => {
-        // ##### Hello
-        console.log(returnData)
-        setValueFromBlockchain(returnData)
-      })
-      .catch(alert)
-      .finally(() => {
-        setUiPleaseWait(false);
-      });
+    // getGreeting()
+    //   .then((returnData) => {
+    //     // ##### Hello
+    //     console.log(returnData)
+    //     setValueFromBlockchain(returnData)
+    //   })
+    //   .catch(alert)
+    //   .finally(() => {
+    //     setUiPleaseWait(false);
+    //   });
     // ======================================
-  }
-    , []);
 
+    
+  }, []);
+
+  // ##### 로그인이 안 되어 있을 때 <SignInPrompt /> 컴포넌트 렌더링
   /// If user not signed-in with wallet - show prompt
   if (!isSignedIn) {
     // Sign-in flow will reload the page later
