@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
+import "./styles.css"
 // ===============================================
 import { BrowserRouter } from 'react-router-dom';
 import Router from './router';
@@ -18,7 +18,7 @@ const CONTRACT_ADDRESS = process.env.CONTRACT_NAME
 // Having the key enables to call non-payable methods without interrupting the user to sign
 // ##### 번역하자면 지갑 생성 시 액세스 키 생성 요청 가능?
 // ##### 키가 있으면 페이어블 아닌 함수 호출 가능?
-const wallet = new Wallet({ createAccessKeyFor: CONTRACT_ADDRESS })
+const wallet = new Wallet({ createAccessKeyFor: CONTRACT_ADDRESS }) //지갑객체를 생성한다. 컨트랙트의 주소 혹은 이름을 전달한다.
 
 // ====================================================================
 // ##### 로그인된 니어 지갑 정보 확인 가능

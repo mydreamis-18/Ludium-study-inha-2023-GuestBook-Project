@@ -18,11 +18,11 @@ const GuestBook_list = () => {
                     </h5>
                 </div>
                 {/* ##### 여기에 자기이름의 방명록 페이지엔 대한 엘리먼트를 추가하세요. */}
-                {/* <div onClick={() => nav('/누구누구 경로')}>
+                <div onClick={() => nav('/daehun')}>
                     <h5 style={{ textAlign: 'center' }}>
-                        누구누구의 방명록 페이지
+                        대훈의 방명록 페이지
                     </h5>
-                </div> */}
+                </div>
             </div>
         </>
     )

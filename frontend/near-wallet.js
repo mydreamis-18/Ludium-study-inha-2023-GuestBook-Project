@@ -19,27 +19,27 @@ export class Wallet {
   network;
   createAccessKeyFor;
 
-  constructor({ createAccessKeyFor = undefined, network = 'testnet' }) {
-    // Login to a wallet passing a contractId will create a local
-    // key, so the user skips signing non-payable transactions.
+  constructor({ createAccessKeyFor = undefined, network = 'testnet' }) { 
+    // Login to a wallet passing a contractId will create a local // CA를 넘기면서 월렛에 로그인하기 떄문에
+    // key, so the user skips signing non-payable transactions. payable이 아닌 Tx에 대해 스킵가능.
     // Omitting the accountId will result in the user being
-    // asked to sign all transactions.
-    this.createAccessKeyFor = createAccessKeyFor
+    // asked to sign all transactions. //Account Id를 빠뜨리면 유저는 모든 Tx에 대해 서명을 해야한다.
+    this.createAccessKeyFor = createAccessKeyFor //컨트랙트 주소.
     this.network = 'testnet'
   }
 
   // To be called when the website loads
   async startUp() {
     this.walletSelector = await setupWalletSelector({
-      network: this.network,
+      network: this.network, //테스트넷
       modules: [setupMyNearWallet()],
     });
 
     const isSignedIn = this.walletSelector.isSignedIn();
 
     if (isSignedIn) {
-      this.wallet = await this.walletSelector.wallet();
-      this.accountId = this.walletSelector.store.getState().accounts[0].accountId;
+      this.wallet = await this.walletSelector.wallet(); //월렛객체.
+      this.accountId = this.walletSelector.store.getState().accounts[0].accountId; //accountID = user의 어카운트 이름.
     }
 
     return isSignedIn;
@@ -59,7 +59,7 @@ export class Wallet {
     window.location.replace(window.location.origin + window.location.pathname);
   }
 
-  // Make a read-only call to retrieve information from the network
+  // Make a read-only call to retrieve information from the network.
   async viewMethod({ contractId, method, args = {} }) {
     const { network } = this.walletSelector.options;
     const provider = new providers.JsonRpcProvider({ url: network.nodeUrl });
@@ -68,7 +68,7 @@ export class Wallet {
       request_type: 'call_function',
       account_id: contractId,
       method_name: method,
-      args_base64: Buffer.from(JSON.stringify(args)).toString('base64'),
+      args_base64: Buffer.from(JSON.stringify(args)).toString('base64'), //스마트 컨트랙트 함수 호출 시 전달되어야 하는 인자들을 텍스트로 변환하여 안전하게 전송하기 위한 인코딩 방식
       finality: 'optimistic',
     });
     return JSON.parse(Buffer.from(res.result).toString());
