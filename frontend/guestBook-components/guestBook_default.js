@@ -18,7 +18,7 @@ const GuestBook_default = () => {
   return (
     <>
     {/* ##### 해당 엘리먼트를 클릭하면 "/" 경로로 이동하는 기능 */}
-      <button onClick={() => nav("/")}>목록 페이지로 돌아 가기</button>
+      <button onClick={() => nav("/")}>목록 페이지로 돌아가기</button>
       <div>GuestBook_default</div>
     </>
   )
